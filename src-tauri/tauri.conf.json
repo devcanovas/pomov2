@@ -29,10 +29,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
-        "title": "pomo",
-        "width": 800,
-        "height": 600
+        "resizable": false,
+        "decorations": false,
+        "width": 350,
+        "height": 700,
+        "skipTaskbar": true,
+        "focus": true
       }
     ]
   }
