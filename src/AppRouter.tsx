@@ -3,6 +3,7 @@ import GlobalStyles from "./components/GlobalStyle";
 import Home from "./pages/Home";
 import { Constants } from "./utils/constants";
 import Decorations from "./components/Decorations";
+import Building from "./pages/Building";
 
 export default function AppRouter() {
   return (
@@ -11,6 +12,7 @@ export default function AppRouter() {
       <GlobalStyles />
       <Routes>
         <Route path={Constants.PATH_TO_HOME} element={<Home />} />
+        <Route path="/profile" element={<Building />} />
       </Routes>
     </BrowserRouter>
   );

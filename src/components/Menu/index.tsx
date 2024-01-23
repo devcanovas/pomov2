@@ -19,7 +19,7 @@ export default function Menu({ options }: MenuProps) {
   return (
     <Footer>
       {options.map((option: OptionMenu) => {
-        return <MenuLink option={option} />;
+        return <MenuLink key={option.id} option={option} />;
       })}
     </Footer>
   );
