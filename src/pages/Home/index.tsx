@@ -30,7 +30,7 @@ const options = [
 export default function Home() {
   return (
     <>
-      <div className="flex items-center justify-center flex-col p-4">
+      <div className="flex items-center justify-center flex-col py-8 px-4">
         <Title>{Constants.POMO_TITLE}</Title>
         <Timer />
         <div className="flex mt-[2rem] justify-between w-full">

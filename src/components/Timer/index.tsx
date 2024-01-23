@@ -5,15 +5,15 @@ import { Button } from "../Button";
 
 export default function Timer() {
   return (
-    <div className="flex content-center justify-center flex-col">
-      <div className="w-[15rem] h-[15rem] border-[#2e2e2e] border-[1px] rounded-md flex items-center content-center">
-        <h1>20:00</h1>
+    <div className="flex justify-center items-center flex-col w-full mt-8">
+      <div className="w-60 h-60 border-zinc-600 border rounded-full flex items-center justify-center">
+        <h1 className="text-6xl font-light">20:00</h1>
       </div>
-      <section className="w-full mt-8">
+        <div className="mt-4">
         <Button.Primary>
           <FontAwesomeIcon icon={faPlayCircle} size={Constants.SIZE_2X} />
         </Button.Primary>
-      </section>
+        </div>
     </div>
   );
 }

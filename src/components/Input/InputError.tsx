@@ -7,9 +7,13 @@ interface TextErrorProps {
 
 export default function InputError({ errorMessage }: TextErrorProps) {
   return (
-    <span className="text-left text-[12px] text-[#fa5252] gap-1">
-      <FontAwesomeIcon icon={faXmarkCircle} />
-      {errorMessage}
+    <span className="text-xs w-full flex text-rose-500 p-1 gap-1">
+      <div>
+        <FontAwesomeIcon icon={faXmarkCircle} />
+      </div>
+      <div>
+        <p>{errorMessage}</p>
+      </div>
     </span>
   );
 }
