@@ -3,6 +3,7 @@ import { appWindow } from "@tauri-apps/api/window";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 import { faWindowMinimize } from "@fortawesome/free-regular-svg-icons";
+import ActionButton from "./ActionButton";
 
 const Container = styled.header`
   height: 30px;
@@ -16,21 +17,6 @@ const Container = styled.header`
   right: 0;
 `;
 
-const ActionButton = styled.button`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  color: white;
-  transition: 0.5s;
-  border: none;
-  background-color: transparent;
-  &:hover {
-    cursor: pointer;
-    background-color: #2e2e2e;
-  }
-`;
 
 export default function Decorations() {
   return (
