@@ -33,7 +33,7 @@ export default function Home() {
       <div className="flex items-center justify-center flex-col py-8 px-4">
         <Title>{Constants.POMO_TITLE}</Title>
         <Timer />
-        <div className="flex mt-[2rem] justify-between w-full gap-2">
+        <div className="flex mt-8 justify-between w-full gap-2">
           <Button.SelectableSecondary iconWhenSelected={faCheckCircle}>
             Longest rest:
             <span style={{ color: `${Constants.GRAY_COLOR}` }}>15min</span>

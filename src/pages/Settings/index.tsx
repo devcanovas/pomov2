@@ -36,22 +36,26 @@ const fields = [
 
 export default function SettingsPage() {
   const [errors, setErrors] = useState([]);
+  const saveSettings = () => {
+
+  }
+
   return (
     <div className="py-8 px-4">
-      <form className="flex items-center justify-center flex-col">
+      <form className="flex items-center justify-center flex-col" onSubmit={saveSettings}>
         <Title>SETTINGS</Title>
         {fields.map((field) => {
           return (
             <Input.Root key={field.id}>
               <Input.Label label={field.label} />
               <Input.Number value="20" onChange={() => {}} />
-              {errors && (
+              {errors.length > 0 && (
                 <Input.Error errorMessage="Erro message"></Input.Error>
               )}
             </Input.Root>
           );
         })}
-        <div className="w-full flex justify-between gap-4">
+        <div className="w-full flex justify-between gap-4 mt-6">
           <Button.Neutral>
             <Button.Icon icon={faArrowRotateRight} />
             <Button.Text text="Reset" />
