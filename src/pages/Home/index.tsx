@@ -30,22 +30,21 @@ const options = [
 export default function Home() {
   return (
     <>
-      <div className="flex items-center justify-center flex-col">
+      <div className="flex items-center justify-center flex-col p-4">
         <Title>{Constants.POMO_TITLE}</Title>
         <Timer />
         <div className="flex mt-[2rem] justify-between w-full">
-          <Button.Primary>
+          <Button.Secondary>
             <FontAwesomeIcon
               icon={faCheckCircle}
-              style={{ marginRight: ".2rem" }}
             />
             Longest rest:
             <span style={{ color: `${Constants.GRAY_COLOR}` }}>15min</span>
-          </Button.Primary>
-          <Button.Primary>
+          </Button.Secondary>
+          <Button.Secondary>
             Shortest rest:
             <span style={{ color: `${Constants.GRAY_COLOR}` }}>15min</span>
-          </Button.Primary>
+          </Button.Secondary>
         </div>
       </div>
       <Menu options={options} />

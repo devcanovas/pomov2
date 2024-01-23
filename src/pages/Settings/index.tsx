@@ -17,29 +17,26 @@ const options = [new OptionMenu(uuidv4(), "Back", "/", faArrowCircleLeft)];
 export default function SettingsPage() {
   const [errors, setErrors] = useState([]);
   return (
-    <>
+    <div className="p-4">
       <form className="flex items-center justify-center flex-col">
         <Title>SETTINGS</Title>
         <Input.Root>
           <Input.Label label="Minutes to focus" />
-          <Input.Number value="20" />
+          <Input.Number value="20" onChange={() => {}} />
           {errors && <Input.Error errorMessage="Erro message"></Input.Error>}
         </Input.Root>
         <div className="w-full flex justify-between">
+          <Button.Neutral>
+            <Button.Icon icon={faArrowRotateRight} />
+            <Button.Text text="Reset"/>
+          </Button.Neutral>
           <Button.Primary>
-            <FontAwesomeIcon
-              icon={faArrowRotateRight}
-              style={{ marginRight: "0.5rem" }}
-            />
-            Reset settings
-          </Button.Primary>
-          <Button.Primary >
-            <FontAwesomeIcon icon={faSave} style={{ marginRight: "0.5rem" }} />
-            Save
+            <Button.Icon icon={faSave} />
+            <Button.Text text="Save"/>
           </Button.Primary>
         </div>
       </form>
       <Menu options={options} />
-    </>
+    </div>
   );
 }

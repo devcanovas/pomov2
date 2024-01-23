@@ -1,5 +1,4 @@
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import Subtitle from "../../components/Subtitle";
 import { Constants } from "../../utils/constants";
@@ -13,7 +12,7 @@ export default function Building() {
       <p className="font-bold text-2xl">
         {Constants.PROGRAMMING_REPRESENTS_LOGO}
       </p>
-      <Subtitle>Wait for the next update, i'll publish it ASAP</Subtitle>
+      <Subtitle>Wait for the next update, i'll publish it in the next patch as soon as possible!</Subtitle>
       <section className="my-4">
       <p className="font-bold text-xl">Thank you!!!👋🏻</p>
       </section>

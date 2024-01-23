@@ -10,7 +10,8 @@ export function ButtonSecondary({ children }: ButtonSecondaryProps) {
         className="
       border
       border-secondary 
-      flex gap-2 
+      flex 
+      gap-1 
       items-center 
       justify-center 
       w-52 

@@ -10,7 +10,8 @@ export function ButtonPrimary({ children }: ButtonPrimaryProps) {
       className="
     border
     border-primary 
-    flex gap-2 
+    flex 
+    gap-1
     items-center 
     justify-center 
     w-52 
