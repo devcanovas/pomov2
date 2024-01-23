@@ -7,7 +7,7 @@ interface MenuProps {
 
 export default function Menu({ options }: MenuProps) {
   return (
-    <footer className="border-t border-[#2e2e2e] border-solid fixed bottom-0 left-0 right-0 p-[0.5rem]">
+    <footer className="border-t border-zinc-700 border-solid fixed bottom-0 left-0 right-0 p-2">
       {options.map((option: OptionMenu) => {
         return <MenuLink key={option.id} option={option} />;
       })}

@@ -11,7 +11,7 @@ export default function MenuLink({ option }: MenuLinkProps) {
     <Link to={option.to}>
       <label
         className="bg-transparent
-          text-[#b17ad8]
+          text-primary
             border-none
             rounded-md 
             transition
