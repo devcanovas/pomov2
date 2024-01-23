@@ -1,28 +1,30 @@
-import gif from "/images/giphy.gif";
-import Subtitle from "../../components/Subtitle";
-import { Link } from "react-router-dom";
-import Button from "../../components/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { Button } from "../../components/Button";
+import Subtitle from "../../components/Subtitle";
 import { Constants } from "../../utils/constants";
+import gif from "/images/giphy.gif";
 
 export default function Building() {
   return (
-    <div className="flex items-center justify-center flex-col p-[2rem] mt-[rem]">
-      <img src={gif} className="w-[12rem] rounded-full" />
+    <div className="flex items-center justify-center flex-col p-8 mt-12">
+      <img src={gif} className="w-48 rounded-full" />
       <Subtitle>I'm working on it yet!</Subtitle>
-      <p>{"</>"}</p>
+      <p className="font-bold text-2xl">
+        {Constants.PROGRAMMING_REPRESENTS_LOGO}
+      </p>
       <Subtitle>Wait for the next update, i'll publish it ASAP</Subtitle>
-      <p>Thank you!!!👋🏻</p>
-      <Link to={Constants.PATH_TO_HOME}>
-        <Button color={Constants.SECONDARY_COLOR}>
-          <FontAwesomeIcon
-            icon={faArrowCircleLeft}
-            style={{ marginRight: "0.5rem" }}
-          />
-          Back to home
-        </Button>
-      </Link>
+      <section className="my-4">
+      <p className="font-bold text-xl">Thank you!!!👋🏻</p>
+      </section>
+      <div className="mt-9">
+        <Button.Link toPath={Constants.PATH_TO_HOME}>
+          <Button.Secondary>
+            <Button.Icon icon={faArrowCircleLeft} />
+            <Button.Text text="Back" />
+          </Button.Secondary>
+        </Button.Link>
+      </div>
     </div>
   );
 }

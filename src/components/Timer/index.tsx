@@ -1,11 +1,7 @@
 import { faPlayCircle } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Constants } from "../../utils/constants";
-import Button from "../Button";
-
-
-
-
+import { Button } from "../Button";
 
 export default function Timer() {
   return (
@@ -14,9 +10,9 @@ export default function Timer() {
         <h1>20:00</h1>
       </div>
       <section className="w-full mt-8">
-        <Button color={Constants.PRIMARY_COLOR}>
+        <Button.Primary>
           <FontAwesomeIcon icon={faPlayCircle} size={Constants.SIZE_2X} />
-        </Button>
+        </Button.Primary>
       </section>
     </div>
   );
