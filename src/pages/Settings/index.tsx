@@ -51,7 +51,7 @@ export default function SettingsPage() {
             </Input.Root>
           );
         })}
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between gap-4">
           <Button.Neutral>
             <Button.Icon icon={faArrowRotateRight} />
             <Button.Text text="Reset" />
