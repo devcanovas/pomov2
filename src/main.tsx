@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import AppRouter from "./AppRouter";
+import LayoutRouter from "./layout";
 import "normalize.css";
+import "./index.css"
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -9,6 +10,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <AppRouter />
+    <LayoutRouter />
   </React.StrictMode>,
 );
