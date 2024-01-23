@@ -13,4 +13,5 @@ export class Constants {
   public static readonly SETTINGS_LABEL: string = "POMO Settings";
   public static readonly SETTINGS_PATH: string = "/settings";
   public static readonly PROFILE_PATH: string = "/profile";
+  public static readonly PROFILE_LABLE: string = "My Profile";
 }

@@ -13,7 +13,12 @@ import { OptionMenu } from "../../shared/classes/OptionMenu";
 import { Constants } from "../../utils/constants";
 
 const options = [
-  new OptionMenu(uuidv4(), "My Profile", "/profile", faUser),
+  new OptionMenu(
+    uuidv4(),
+    Constants.PROFILE_LABLE,
+    Constants.PROFILE_PATH,
+    faUser
+  ),
   new OptionMenu(
     uuidv4(),
     Constants.SETTINGS_LABEL,
