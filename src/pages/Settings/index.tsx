@@ -56,10 +56,10 @@ export default function SettingsPage() {
             <Button.Icon icon={faArrowRotateRight} />
             <Button.Text text="Reset" />
           </Button.Neutral>
-          <Button.Primary>
+          <Button.Secondary>
             <Button.Icon icon={faSave} />
             <Button.Text text="Save" />
-          </Button.Primary>
+          </Button.Secondary>
         </div>
       </form>
       <Menu options={options} />

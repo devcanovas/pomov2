@@ -12,7 +12,8 @@ export function InputNumber({ value, onChange }: InputNumberProps) {
       bg-zinc-900
       text-xl
       rounded-md
-      border-none text-white text-center text-[14px]"
+      border-none text-white text-center
+      p-2"
       value={value}
       onChange={onChange}
       mask="99"
