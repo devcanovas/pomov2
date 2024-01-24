@@ -1,16 +1,15 @@
 import { InputMask, InputMaskChangeEvent } from "primereact/inputmask";
-import { useEffect, useState } from "react";
-import { ValidationInputConfig } from "../../shared/classes/ValidationInputConfig";
+import { BaseSyntheticEvent, SetStateAction, useEffect, useState } from "react";
 import InputError from "./InputError";
 
 interface InputNumberProps {
   value: string;
-  validationConfig: ValidationInputConfig;
+  errorMessage?: string;
+  onChange: (e: InputMaskChangeEvent) => void
 }
 
 export function InputNumber(opts: InputNumberProps) {
   const [val, setVal] = useState(opts.value);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     console.log(val);
@@ -28,10 +27,13 @@ export function InputNumber(opts: InputNumberProps) {
       text-zinc-400
       p-2"
         {...opts}
-        mask={"99 minutes"}
-        onChange={(e: InputMaskChangeEvent) => setVal(e.value)}
+        mask={"99"}
       />
-      {error && <InputError errorMessage={error} />}
+      {
+        opts.errorMessage && (
+          <InputError errorMessage={opts.errorMessage}/>
+        )
+      }
     </>
   );
 }

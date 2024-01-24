@@ -4,14 +4,14 @@ import { v4 } from "uuid";
 export class FieldConfig {
   id: string;
   label: string;
-  value: number | null | undefined;
+  value: number;
   setState: Dispatch<SetStateAction<number | null | undefined>>;
   minValue: number;
   maxValue: number;
 
   constructor(
     label: string,
-    value: number | null | undefined,
+    value: number,
     setState: Dispatch<SetStateAction<number | null | undefined>> ,
     minValue: number,
     maxValue: number
