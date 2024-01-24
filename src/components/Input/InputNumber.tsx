@@ -1,23 +1,11 @@
-import { InputMask, InputMaskChangeEvent } from "primereact/inputmask";
-import { BaseSyntheticEvent, SetStateAction, useEffect, useState } from "react";
-import InputError from "./InputError";
-
 interface InputNumberProps {
-  value: string;
-  errorMessage?: string;
-  onChange: (e: InputMaskChangeEvent) => void
+  value?: number;
 }
 
-export function InputNumber(opts: InputNumberProps) {
-  const [val, setVal] = useState(opts.value);
-
-  useEffect(() => {
-    console.log(val);
-  }, [val]);
-
+export function InputNumber({ value }: InputNumberProps) {
   return (
     <>
-      <InputMask
+      <input
         className="
       bg-zinc-900
       text-xl
@@ -26,14 +14,10 @@ export function InputNumber(opts: InputNumberProps) {
       text-center
       text-zinc-400
       p-2"
-        {...opts}
-        mask={"99"}
+        type="numeber"
+        min="10"
+        max="60"
       />
-      {
-        opts.errorMessage && (
-          <InputError errorMessage={opts.errorMessage}/>
-        )
-      }
     </>
   );
 }
