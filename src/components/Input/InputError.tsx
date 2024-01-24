@@ -2,7 +2,7 @@ import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface TextErrorProps {
-  errorMessage: string;
+  errorMessage: string | undefined;
 }
 
 export default function InputError({ errorMessage }: TextErrorProps) {
