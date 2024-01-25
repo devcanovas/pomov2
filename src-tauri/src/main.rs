@@ -1,10 +1,21 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use notify_rust::Notification;
 use tauri::{generate_context, Manager, SystemTray, SystemTrayEvent, Window};
 use tauri_plugin_positioner::{Position, WindowExt};
 
+#[tauri::command]
+fn throw_notification(title: &str) -> () {
+    Notification::new()
+    .summary("Hey👋🏻! Congratulations! you fulfilled your time to focus☑ it's time to rest!")
+    .appname(title)
+    .icon("logo-pomo")
+    .show().unwrap();
+}
+
 fn main() {
     tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![throw_notification])
         .setup(|app| {
             let splashscreen_window = app.get_window("splashscreen").unwrap();
             let main_window = app.get_window("main").unwrap();

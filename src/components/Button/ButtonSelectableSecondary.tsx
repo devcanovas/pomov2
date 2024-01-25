@@ -1,20 +1,23 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 interface ButtonSelectableSecondaryProps {
   children: ReactNode;
   iconWhenSelected: IconProp;
+  isSelected: boolean;
+  onClick?: () => void;
 }
 
 export function ButtonSelectableSecondary({
   children,
   iconWhenSelected,
+  isSelected,
+  onClick,
 }: ButtonSelectableSecondaryProps) {
-  const [isSelected, setSelected] = useState(false);
   return (
     <button
-      onClick={() => setSelected(!isSelected)}
+      onClick={onClick}
       className={`
         border
         ${

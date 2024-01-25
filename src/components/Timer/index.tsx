@@ -10,6 +10,7 @@ import { selectSettings } from "../../redux/settingsSlice";
 import { useEffect, useState } from "react";
 import { formatTime } from "../../utils/formatters";
 import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import { invoke } from "@tauri-apps/api";
 
 export default function Timer() {
   const settings = useSelector(selectSettings);
@@ -19,6 +20,9 @@ export default function Timer() {
   useEffect(() => {
     let timer: any = null;
     if (seconds <= 0) {
+      invoke('throw_notification', {
+        title: "POMO"
+      })
       return;
     }
     if (isActive) {
@@ -38,7 +42,7 @@ export default function Timer() {
       </div>
       <div className="mt-4 flex flex-col justify-center items-center">
         <Button.Primary onClick={() => setIsActive(!isActive)}>
-          {(!isActive && (
+          {((!isActive && seconds > 0) && (
             <FontAwesomeIcon icon={faPlayCircle} size={Constants.SIZE_2X} />
           )) || (
             <FontAwesomeIcon icon={faPauseCircle} size={Constants.SIZE_2X} />
