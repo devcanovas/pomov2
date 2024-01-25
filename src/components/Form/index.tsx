@@ -5,8 +5,11 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Button } from "../Button";
 import { Input } from "../Input";
+import { useSelector } from "react-redux";
+import { selectSettings } from "../../redux/settingsSlice";
 
-const classNames = "bg-zinc-900 text-xl rounded-md border-none text-center text-zinc-400 p-2";
+const classNames =
+  "bg-zinc-900 text-xl rounded-md border-none text-center text-zinc-400 p-2";
 
 const schema = yup
   .object({
@@ -25,6 +28,8 @@ export default function Form() {
     resolver: yupResolver(schema),
   });
 
+  const settings = useSelector(selectSettings);
+
   const onSubmit = (data: any) => console.log(data);
 
   return (
@@ -32,29 +37,17 @@ export default function Form() {
       {/* INPUTS */}
       <Input.Root>
         <Input.Label label="Minutes to focus:" />
-        <input
-        defaultValue={0}
-          className={classNames}
-          {...register("focus")}
-        />
+        <input defaultValue={settings.time_to_focus} className={classNames} {...register("focus")} />
         {errors.focus && <Input.Error errorMessage={errors.focus?.message} />}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to long rest:" />
-        <input
-        defaultValue={0}
-          className={classNames}
-          {...register("long")}
-        />
+        <input defaultValue={settings.time_to_rest_long} className={classNames} {...register("long")} />
         {errors.long && <Input.Error errorMessage={errors.long?.message} />}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to short rest:" />
-        <input
-        defaultValue={0}
-          className={classNames}
-          {...register("short")}
-        />
+        <input defaultValue={settings.time_to_rest_short} className={classNames} {...register("short")} />
         {errors.short && <Input.Error errorMessage={errors.short?.message} />}
       </Input.Root>
 

@@ -18,6 +18,6 @@ export const settingsSlice = createSlice({
 
 export const { saveSettings } = settingsSlice.actions;
 
-export const selectSettings= (state) => state.settings;
+export const selectSettings = (state: any) => state.settings;
 
 export default settingsSlice.reducer;
