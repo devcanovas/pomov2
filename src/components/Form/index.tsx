@@ -9,6 +9,8 @@ import { Settings } from "../../shared/classes/Settings";
 import { Constants } from "../../utils/constants";
 import { Button } from "../Button";
 import { Input } from "../Input";
+import Alert from "@mui/material/Alert";
+import { useState } from "react";
 
 const classNames =
   "bg-zinc-900 text-xl rounded-md border-none text-center text-zinc-400 p-2";
@@ -35,8 +37,13 @@ export default function Form() {
 
   const pomodoro = useSelector(selectPomodoro);
 
+  const [success, setSuccess] = useState(false);
   const onSubmit = (data: any) => {
     dispatch(saveSettings(new Settings(data.focus, data.long, data.short)));
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false)
+    }, 3000)
   };
 
   const onReset = () => {
@@ -47,6 +54,13 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} onReset={onReset}>
+      {success && (
+        <Alert variant="outlined" severity="success">
+          <p className="text-zinc-500">
+            Success! Your settings was saved successfully
+          </p>
+        </Alert>
+      )}
       {/* INPUTS */}
       <Input.Root>
         <Input.Label label="Minutes to focus:" />

@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { Button } from "../Button";
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
-import { Settings } from "../../shared/classes/Settings";
-import { Constants } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { selectWichIsSelected, setSelected } from "../../redux/settingsSlice";
+import { Settings } from "../../shared/classes/Settings";
+import { Constants } from "../../utils/constants";
+import { Button } from "../Button";
 
 interface SelectRestTimerProps {
   settings: Settings;

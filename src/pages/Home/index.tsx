@@ -1,4 +1,5 @@
-import { faEdit, faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 import Menu from "../../components/Menu";
 import Timer from "../../components/Timer";
@@ -17,7 +18,7 @@ const options = [
     uuidv4(),
     Constants.SETTINGS_LABEL,
     Constants.SETTINGS_PATH,
-    faEdit
+    faGear
   ),
 ];
 
@@ -27,8 +28,15 @@ export default function Home() {
     <>
       <div className="flex items-center justify-center flex-col py-8 px-4">
         <div className="flex items-center justify-center gap-4 w-full">
-          <img src="/images/logo-pomo.png" className="w-10" />
-          <Title>{Constants.POMO_TITLE}</Title>
+          <div>
+            <img src="/images/logo-pomo.png" className="w-10" />
+          </div>
+          <div className="flex items-center">
+            <Title>{Constants.POMO_TITLE}</Title>
+            <div>
+              <span className="text-zinc-600">- Beta v0.1</span>
+            </div>
+          </div>
         </div>
         <Timer />
       </div>

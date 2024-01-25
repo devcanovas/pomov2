@@ -5,11 +5,11 @@ use tauri::{generate_context, Manager, SystemTray, SystemTrayEvent, Window};
 use tauri_plugin_positioner::{Position, WindowExt};
 
 #[tauri::command]
-fn throw_notification(title: &str) -> () {
+fn throw_notification(title: &str, body: &str) -> () {
     Notification::new()
-    .summary("Hey👋🏻! Congratulations! you fulfilled your time to focus☑ it's time to rest!")
+    .summary(title)
+    .body(body)
     .appname(title)
-    .icon("logo-pomo")
     .show().unwrap();
 }
 

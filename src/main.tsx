@@ -1,19 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import LayoutRouter from "./layout";
+import App from "./App";
+import "./styles.css";
 import { Provider } from "react-redux";
-import "normalize.css";
-import "./index.css";
 import { store } from "./app/store";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-
-root.render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <LayoutRouter />
+      <App />
     </Provider>
   </React.StrictMode>
 );

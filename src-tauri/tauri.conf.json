@@ -6,36 +6,22 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "pomo",
+    "productName": "pomov2",
     "version": "0.0.0"
   },
   "tauri": {
     "allowlist": {
       "all": false,
-      "notification": {
-        "all": true
-      },
       "shell": {
         "all": false,
         "open": true
-      },
-      "window": {
-        "all": false,
-        "close": true,
-        "hide": true,
-        "show": true,
-        "maximize": true,
-        "minimize": true,
-        "unmaximize": true,
-        "unminimize": true,
-        "startDragging": true
       }
     },
     "bundle": {
       "active": true,
       "targets": "all",
       "identifier": "com.github.devcanovas",
-      "icon": ["icons/logo-pomo.png", "icons/logo-app.ico"]
+      "icon": ["icons/pomo-icon.ico", "icons/pomo-icon-png.png"]
     },
     "security": {
       "csp": null
@@ -61,7 +47,7 @@
       }
     ],
     "systemTray": {
-      "iconPath": "icons/logo-pomo.png",
+      "iconPath": "icons/pomo-icon-png.png",
       "iconAsTemplate": true
     }
   }

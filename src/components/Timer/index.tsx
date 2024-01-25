@@ -1,4 +1,7 @@
-import { faPauseCircle, faPlayCircle } from "@fortawesome/free-regular-svg-icons";
+import {
+  faPauseCircle,
+  faPlayCircle,
+} from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { invoke } from "@tauri-apps/api";
 import { useEffect, useState } from "react";
@@ -20,21 +23,30 @@ export default function Timer() {
       if (restTime === false) {
         invoke("throw_notification", {
           title: "POMO",
+          body: `Hey👋🏻! Congratulations! you fulfilled your time to focus☑ it's time to rest for ${
+            pomodoro.wich_is_selected === "long"
+              ? pomodoro.time_to_rest_long
+              : pomodoro.time_to_rest_short
+          }!`,
         });
-        timer = pomodoro.wich_is_selected === "long" ? setSeconds(pomodoro.time_to_rest_long * 60) : setSeconds(pomodoro.time_to_rest_short * 60);
+        timer =
+          pomodoro.wich_is_selected === "long"
+            ? setSeconds(pomodoro.time_to_rest_long * 60)
+            : setSeconds(pomodoro.time_to_rest_short * 60);
         setRestTime(true);
         return;
       }
-      if(restTime === true) {
+      if (restTime === true) {
         invoke("throw_notification", {
           title: "POMO",
+          body: `Hey👋🏻 ‼ It's time to focus more ${pomodoro.time_to_focus} minutes my friend!`,
         });
         timer = setSeconds(pomodoro.time_to_focus * 60);
         setRestTime(false);
       }
       return;
     }
-    
+
     timer = setTimer(timer);
     return () => {
       clearInterval(timer);
@@ -51,7 +63,9 @@ export default function Timer() {
           <Button.Primary onClick={() => setIsActive(!isActive)}>
             {(!isActive && seconds > 0 && (
               <FontAwesomeIcon icon={faPlayCircle} size={Constants.SIZE_2X} />
-            )) || <FontAwesomeIcon icon={faPauseCircle} size={Constants.SIZE_2X} />}
+            )) || (
+              <FontAwesomeIcon icon={faPauseCircle} size={Constants.SIZE_2X} />
+            )}
           </Button.Primary>
           <Button.Restart
             onClick={() => setSeconds(pomodoro.time_to_focus * 60)}

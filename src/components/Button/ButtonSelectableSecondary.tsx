@@ -33,7 +33,7 @@ export function ButtonSelectableSecondary({
         py-3 
         transition duration-200`}
     >
-      {isSelected && <FontAwesomeIcon icon={iconWhenSelected} />}
+      {isSelected && <FontAwesomeIcon icon={iconWhenSelected} className="text-[#81E6D9]"/>}
       {children}
     </button>
   );
