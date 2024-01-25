@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { selectSettings } from "../../redux/settingsSlice";
 import { useEffect, useState } from "react";
 import { formatTime } from "../../utils/formatters";
+import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Timer() {
   const settings = useSelector(selectSettings);
@@ -28,14 +29,14 @@ export default function Timer() {
     return () => {
       clearInterval(timer);
     };
-  }, [isActive]);
+  }, [seconds, isActive]);
 
   return (
     <div className="flex justify-center items-center flex-col w-full mt-8">
       <div className="w-60 h-60 border-zinc-600 border rounded-full flex items-center justify-center">
         <h1 className="text-6xl font-light">{formatTime(seconds)}</h1>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex flex-col justify-center items-center">
         <Button.Primary onClick={() => setIsActive(!isActive)}>
           {(!isActive && (
             <FontAwesomeIcon icon={faPlayCircle} size={Constants.SIZE_2X} />
@@ -43,6 +44,17 @@ export default function Timer() {
             <FontAwesomeIcon icon={faPauseCircle} size={Constants.SIZE_2X} />
           )}
         </Button.Primary>
+        <button
+          className="pt-5 gap-2 flex text-zinc-500"
+          onClick={() => setSeconds(settings.time_to_focus * 60)}
+        >
+          <div>
+            <FontAwesomeIcon icon={faArrowRotateLeft} size={"1x"} />
+          </div>
+          <div>
+            <span>Restart</span>
+          </div>
+        </button>
       </div>
     </div>
   );

@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 
 interface ButtonNeutralProps {
     children: ReactNode
-    type: "submit" | "reset" | "button" | undefined
+    type?: "submit" | "reset" | "button" | undefined
+    onClick?: () => void;
 }
 
 export function ButtonNeutral({children, type}: ButtonNeutralProps) {
