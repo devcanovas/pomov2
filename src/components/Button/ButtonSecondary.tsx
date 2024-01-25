@@ -2,9 +2,10 @@ import { ReactNode } from "react";
 
 interface ButtonSecondaryProps {
     children: ReactNode
+    type: "submit" | "reset" | "button" | undefined
 }
 
-export function ButtonSecondary({ children }: ButtonSecondaryProps) {
+export function ButtonSecondary({ type, children }: ButtonSecondaryProps) {
     return (
       <button
         className="
@@ -20,6 +21,7 @@ export function ButtonSecondary({ children }: ButtonSecondaryProps) {
       hover:bg-secondary
       hover:text-zinc-900
       transition duration-200"
+      type={type}
       >
         {children}
       </button>

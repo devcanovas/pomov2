@@ -6,7 +6,7 @@ interface InputRootProps {
 
 export function InputRoot({ children }: InputRootProps) {
   return (
-    <div className="flex flex-col items-center justify-center pb-[1rem]">
+    <div className="flex flex-col items-center justify-center pb-4">
       {children}
     </div>
   );
