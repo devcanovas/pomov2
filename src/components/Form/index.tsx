@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import { useSelector } from "react-redux";
-import { selectSettings } from "../../redux/settingsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { saveSettings, selectSettings } from "../../redux/settingsSlice";
+import { Settings } from "../../shared/classes/Settings";
 
 const classNames =
   "bg-zinc-900 text-xl rounded-md border-none text-center text-zinc-400 p-2";
@@ -20,6 +21,7 @@ const schema = yup
   .required();
 
 export default function Form() {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -30,24 +32,37 @@ export default function Form() {
 
   const settings = useSelector(selectSettings);
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) =>
+    dispatch(saveSettings(new Settings(data.focus, data.long, data.short)));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* INPUTS */}
       <Input.Root>
         <Input.Label label="Minutes to focus:" />
-        <input defaultValue={settings.time_to_focus} className={classNames} {...register("focus")} />
+        <input
+          defaultValue={settings.time_to_focus}
+          className={classNames}
+          {...register("focus")}
+        />
         {errors.focus && <Input.Error errorMessage={errors.focus?.message} />}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to long rest:" />
-        <input defaultValue={settings.time_to_rest_long} className={classNames} {...register("long")} />
+        <input
+          defaultValue={settings.time_to_rest_long}
+          className={classNames}
+          {...register("long")}
+        />
         {errors.long && <Input.Error errorMessage={errors.long?.message} />}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to short rest:" />
-        <input defaultValue={settings.time_to_rest_short} className={classNames} {...register("short")} />
+        <input
+          defaultValue={settings.time_to_rest_short}
+          className={classNames}
+          {...register("short")}
+        />
         {errors.short && <Input.Error errorMessage={errors.short?.message} />}
       </Input.Root>
 

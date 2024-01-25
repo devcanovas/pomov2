@@ -18,7 +18,7 @@ export default function Building() {
       </section>
       <div className="mt-9">
         <Button.Link toPath={Constants.PATH_TO_HOME}>
-          <Button.Secondary>
+          <Button.Secondary type="button">
             <Button.Icon icon={faArrowCircleLeft} />
             <Button.Text text="Back" />
           </Button.Secondary>

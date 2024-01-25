@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Settings } from "../shared/classes/Settings";
 
 const initialState = {
   time_to_focus: 20,
@@ -10,8 +11,15 @@ export const settingsSlice = createSlice({
   name: "settings",
   initialState,
   reducers: {
-    saveSettings: (state) => {
-      console.log(state);
+    saveSettings: (state, action) => {
+      const payload: Settings = action.payload;
+      setSettings();
+
+      function setSettings() {
+        state.time_to_focus = payload.focus;
+        state.time_to_rest_long = payload.longRest;
+        state.time_to_rest_short = payload.shortRest;
+      }
     },
   },
 });
