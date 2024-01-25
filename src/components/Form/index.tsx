@@ -2,12 +2,12 @@ import { faSave } from "@fortawesome/free-regular-svg-icons";
 import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
+import { saveSettings, selectPomodoro } from "../../redux/settingsSlice";
+import { Settings } from "../../shared/classes/Settings";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import { useDispatch, useSelector } from "react-redux";
-import { saveSettings, selectSettings } from "../../redux/settingsSlice";
-import { Settings } from "../../shared/classes/Settings";
 
 const classNames =
   "bg-zinc-900 text-xl rounded-md border-none text-center text-zinc-400 p-2";
@@ -31,17 +31,17 @@ export default function Form() {
     resolver: yupResolver(schema),
   });
 
-  const settings = useSelector(selectSettings);
+  const pomodoro = useSelector(selectPomodoro);
 
   const onSubmit = (data: any) => {
     dispatch(saveSettings(new Settings(data.focus, data.long, data.short)));
   };
 
   const onReset = () => {
-    setValue("focus", settings.time_to_focus);
-    setValue("long", settings.time_to_rest_long);
-    setValue("short", settings.time_to_rest_short);
-  }
+    setValue("focus", pomodoro.time_to_focus);
+    setValue("long", pomodoro.time_to_rest_long);
+    setValue("short", pomodoro.time_to_rest_short);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} onReset={onReset}>
@@ -49,7 +49,7 @@ export default function Form() {
       <Input.Root>
         <Input.Label label="Minutes to focus:" />
         <input
-          defaultValue={settings.time_to_focus}
+          defaultValue={pomodoro.time_to_focus}
           className={classNames}
           {...register("focus")}
         />
@@ -58,7 +58,7 @@ export default function Form() {
       <Input.Root>
         <Input.Label label="Minutes to long rest:" />
         <input
-          defaultValue={settings.time_to_rest_long}
+          defaultValue={pomodoro.time_to_rest_long}
           className={classNames}
           {...register("long")}
         />
@@ -67,7 +67,7 @@ export default function Form() {
       <Input.Root>
         <Input.Label label="Minutes to short rest:" />
         <input
-          defaultValue={settings.time_to_rest_short}
+          defaultValue={pomodoro.time_to_rest_short}
           className={classNames}
           {...register("short")}
         />

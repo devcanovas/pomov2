@@ -3,23 +3,24 @@ import { Button } from "../Button";
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 import { Settings } from "../../shared/classes/Settings";
 import { Constants } from "../../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { selectWichIsSelected, setSelected } from "../../redux/settingsSlice";
 
 interface SelectRestTimerProps {
-    settings: Settings
+  settings: Settings;
 }
 
 export default function SelectRestTimer({ settings }: SelectRestTimerProps) {
-    const [isLongSelected, setLongSelected] = useState(false);
-    const [isShortSelected, setShortSelected] = useState(false);
+  const dispatch = useDispatch();
+  const wichIsSelected = useSelector(selectWichIsSelected);
+  const isLongSelected = wichIsSelected === "long" ? true : false;
+  const isShortSelected = wichIsSelected === "short" ? true : false;
   return (
     <div className="flex mt-8 justify-between w-full gap-2">
       <Button.SelectableSecondary
         isSelected={isLongSelected}
         onClick={() => {
-          if (isShortSelected) {
-            setShortSelected(false);
-          }
-          return setLongSelected(!isLongSelected);
+          return dispatch(setSelected("long"));
         }}
         iconWhenSelected={faCheckCircle}
       >
@@ -31,10 +32,7 @@ export default function SelectRestTimer({ settings }: SelectRestTimerProps) {
       <Button.SelectableSecondary
         isSelected={isShortSelected}
         onClick={() => {
-          if (isLongSelected) {
-            setLongSelected(false);
-          }
-          return setShortSelected(!isShortSelected);
+          return dispatch(setSelected("short"));
         }}
         iconWhenSelected={faCheckCircle}
       >
