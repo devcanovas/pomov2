@@ -25,6 +25,7 @@ export default function Form() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -32,11 +33,18 @@ export default function Form() {
 
   const settings = useSelector(selectSettings);
 
-  const onSubmit = (data: any) =>
+  const onSubmit = (data: any) => {
     dispatch(saveSettings(new Settings(data.focus, data.long, data.short)));
+  };
+
+  const onReset = () => {
+    setValue("focus", settings.time_to_focus);
+    setValue("long", settings.time_to_rest_long);
+    setValue("short", settings.time_to_rest_short);
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} onReset={onReset}>
       {/* INPUTS */}
       <Input.Root>
         <Input.Label label="Minutes to focus:" />
@@ -67,7 +75,7 @@ export default function Form() {
       </Input.Root>
 
       <div className="w-full flex justify-between gap-4 pt-10">
-        <Button.Neutral>
+        <Button.Neutral type="reset">
           <Button.Icon icon={faArrowRotateLeft} />
           <Button.Text text="Reset" />
         </Button.Neutral>

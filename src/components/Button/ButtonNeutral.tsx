@@ -2,9 +2,10 @@ import { ReactNode } from "react";
 
 interface ButtonNeutralProps {
     children: ReactNode
+    type: "submit" | "reset" | "button" | undefined
 }
 
-export function ButtonNeutral({children}: ButtonNeutralProps) {
+export function ButtonNeutral({children, type}: ButtonNeutralProps) {
     return (
         <button
           className="
@@ -20,6 +21,7 @@ export function ButtonNeutral({children}: ButtonNeutralProps) {
         hover:bg-zinc-600
         hover:text-zinc-900
         transition duration-200"
+        type={type}
         >
           {children}
         </button>

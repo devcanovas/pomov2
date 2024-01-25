@@ -37,11 +37,11 @@ export default function Home() {
         <Timer />
         <div className="flex mt-8 justify-between w-full gap-2">
           <Button.SelectableSecondary iconWhenSelected={faCheckCircle}>
-            Longest rest:
+            Long rest:
             <span style={{ color: `${Constants.GRAY_COLOR}` }}>{settings.time_to_rest_long}min</span>
           </Button.SelectableSecondary>
           <Button.SelectableSecondary iconWhenSelected={faCheckCircle}>
-            Shortest rest:
+            Short rest:
             <span style={{ color: `${Constants.GRAY_COLOR}` }}>{settings.time_to_rest_short}min</span>
           </Button.SelectableSecondary>
         </div>
