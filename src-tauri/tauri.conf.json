@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "pomo",
+    "productName": "pomov2",
     "version": "0.0.0"
   },
   "tauri": {
@@ -21,7 +21,7 @@
       "active": true,
       "targets": "all",
       "identifier": "com.github.devcanovas",
-      "icon": ["icons/logo-pomo.png", "icons/logo-pomo.ico"]
+      "icon": ["icons/pomo-icon.ico", "icons/pomo-icon-png.png"]
     },
     "security": {
       "csp": null
@@ -29,11 +29,26 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
-        "title": "pomo",
-        "width": 800,
-        "height": 600
+        "resizable": false,
+        "decorations": false,
+        "width": 350,
+        "height": 700,
+        "skipTaskbar": true,
+        "focus": true,
+        "visible": false
+      },
+      {
+        "width": 350,
+        "height": 700,
+        "decorations": false,
+        "url": "splashscreen.html",
+        "label": "splashscreen",
+        "skipTaskbar": true
       }
-    ]
+    ],
+    "systemTray": {
+      "iconPath": "icons/pomo-icon-png.png",
+      "iconAsTemplate": true
+    }
   }
 }

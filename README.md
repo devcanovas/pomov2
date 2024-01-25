@@ -10,9 +10,10 @@ I developed this Pomodoro application using modern technologies to optimize time
 
 **Redux:** I implemented Redux to manage the global state of the application, ensuring efficient data management and communication between components.
 
-**TailwindCSS:** I adopted the Tailwind approach to style the application elements, delivering a modern and customized aesthetic.
+**Styled Components:** I adopted the Styled Components approach to style the application elements, delivering a modern and customized aesthetic.
 
 **Tauri:** To ensure a native and fast desktop experience, I integrated Tauri, enabling the packaging of the application using web technologies.
+
 
 <h2>Key Features:</h2>
 
