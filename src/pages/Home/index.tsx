@@ -18,13 +18,13 @@ const options = [
     uuidv4(),
     Constants.PROFILE_LABLE,
     Constants.PROFILE_PATH,
-    faUser,
+    faUser
   ),
   new OptionMenu(
     uuidv4(),
     Constants.SETTINGS_LABEL,
     Constants.SETTINGS_PATH,
-    faEdit,
+    faEdit
   ),
 ];
 
@@ -33,16 +33,23 @@ export default function Home() {
   return (
     <>
       <div className="flex items-center justify-center flex-col py-8 px-4">
-        <Title>{Constants.POMO_TITLE}</Title>
+        <div className="flex items-center justify-center gap-4 w-full">
+            <img src="/images/logo-pomo.png" className="w-10" />
+            <Title>{Constants.POMO_TITLE}</Title>
+        </div>
         <Timer />
         <div className="flex mt-8 justify-between w-full gap-2">
           <Button.SelectableSecondary iconWhenSelected={faCheckCircle}>
             Long rest:
-            <span style={{ color: `${Constants.GRAY_COLOR}` }}>{settings.time_to_rest_long}min</span>
+            <span style={{ color: `${Constants.GRAY_COLOR}` }}>
+              {settings.time_to_rest_long}min
+            </span>
           </Button.SelectableSecondary>
           <Button.SelectableSecondary iconWhenSelected={faCheckCircle}>
             Short rest:
-            <span style={{ color: `${Constants.GRAY_COLOR}` }}>{settings.time_to_rest_short}min</span>
+            <span style={{ color: `${Constants.GRAY_COLOR}` }}>
+              {settings.time_to_rest_short}min
+            </span>
           </Button.SelectableSecondary>
         </div>
       </div>
