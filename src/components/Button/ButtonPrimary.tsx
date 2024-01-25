@@ -1,10 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, SetStateAction } from "react";
 
 interface ButtonPrimaryProps {
   children: ReactNode;
+  onClick?: () => void;
 }
 
-export function ButtonPrimary({ children }: ButtonPrimaryProps) {
+export function ButtonPrimary({ children, onClick }: ButtonPrimaryProps) {
   return (
     <button
       className="
@@ -20,6 +21,7 @@ export function ButtonPrimary({ children }: ButtonPrimaryProps) {
     hover:bg-primary
     hover:text-zinc-900
     transition duration-200"
+    onClick={onClick}
     >
       {children}
     </button>

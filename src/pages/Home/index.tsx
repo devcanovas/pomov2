@@ -12,6 +12,8 @@ import { OptionMenu } from "../../shared/classes/OptionMenu";
 import { Constants } from "../../utils/constants";
 import { useSelector } from "react-redux";
 import { selectSettings } from "../../redux/settingsSlice";
+import { useState } from "react";
+import { isAction } from "@reduxjs/toolkit";
 
 const options = [
   new OptionMenu(
