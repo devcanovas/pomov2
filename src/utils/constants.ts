@@ -17,4 +17,8 @@ export class Constants {
   public static readonly PROFILE_LABLE: string = "My Profile";
   public static readonly PROGRAMMING_REPRESENTS_LOGO: string = "</>";
   public static readonly BACK_LABEL = "Back";
+  public static readonly SHORT_NAN_ERROR_MESSAGE = 'short must be a `number` type, but the final value was: `NaN` (cast from the value `""`).';
+  public static readonly FOCUS_NAN_ERROR_MESSAGE = 'focus must be a `number` type, but the final value was: `NaN` (cast from the value `""`).';
+  public static readonly LONG_NAN_ERROR_MESSAGE = 'long must be a `number` type, but the final value was: `NaN` (cast from the value `""`).';
+  public static readonly DEFAULT_NAN_MESSAGE = "The field must to be informed with by numbers";
 }

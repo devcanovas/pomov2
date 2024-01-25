@@ -5,11 +5,16 @@ import Menu from "../../components/Menu";
 import Title from "../../components/Title";
 import { OptionMenu } from "../../shared/classes/OptionMenu";
 import { Constants } from "../../utils/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 export default function SettingsPage() {
   return (
     <div className="py-8 px-4">
-      <Title>SETTINGS</Title>
+      <div className="flex items-center justify-center gap-4 w-full">
+          <FontAwesomeIcon icon={faGear} size="2x"/>
+          <Title>SETTINGS</Title>
+        </div>
       <div className="pt-8">
         <Form />
       </div>

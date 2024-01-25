@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { saveSettings, selectPomodoro } from "../../redux/settingsSlice";
 import { Settings } from "../../shared/classes/Settings";
+import { Constants } from "../../utils/constants";
 import { Button } from "../Button";
 import { Input } from "../Input";
 
@@ -25,6 +26,7 @@ export default function Form() {
   const {
     register,
     handleSubmit,
+    watch,
     setValue,
     formState: { errors },
   } = useForm({
@@ -53,7 +55,17 @@ export default function Form() {
           className={classNames}
           {...register("focus")}
         />
-        {errors.focus && <Input.Error errorMessage={errors.focus?.message} />}
+        {errors.focus && (
+          <Input.Error
+            errorMessage={errors.focus?.message?.replace(
+              getErrorFieldNaNDefaultMessage(
+                "focus",
+                watch("focus").toString()
+              ),
+              Constants.DEFAULT_NAN_MESSAGE
+            )}
+          />
+        )}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to long rest:" />
@@ -62,7 +74,14 @@ export default function Form() {
           className={classNames}
           {...register("long")}
         />
-        {errors.long && <Input.Error errorMessage={errors.long?.message} />}
+        {errors.long && (
+          <Input.Error
+            errorMessage={errors.long?.message?.replace(
+              getErrorFieldNaNDefaultMessage("long", watch("long").toString()),
+              Constants.DEFAULT_NAN_MESSAGE
+            )}
+          />
+        )}
       </Input.Root>
       <Input.Root>
         <Input.Label label="Minutes to short rest:" />
@@ -71,7 +90,17 @@ export default function Form() {
           className={classNames}
           {...register("short")}
         />
-        {errors.short && <Input.Error errorMessage={errors.short?.message} />}
+        {errors.short && (
+          <Input.Error
+            errorMessage={errors.short?.message?.replace(
+              getErrorFieldNaNDefaultMessage(
+                "short",
+                watch("short").toString()
+              ),
+              Constants.DEFAULT_NAN_MESSAGE
+            )}
+          />
+        )}
       </Input.Root>
 
       <div className="w-full flex justify-between gap-4 pt-10">
@@ -86,4 +115,16 @@ export default function Form() {
       </div>
     </form>
   );
+
+  function getErrorFieldNaNDefaultMessage(
+    field: string,
+    valueInput: string
+  ): string {
+    return (
+      field +
+      ' must be a `number` type, but the final value was: `NaN` (cast from the value `"' +
+      valueInput +
+      '"`).'
+    );
+  }
 }

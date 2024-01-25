@@ -13,15 +13,28 @@ export default function Timer() {
   const pomodoro = useSelector(selectPomodoro);
   const [seconds, setSeconds] = useState(pomodoro.time_to_focus * 60);
   const [isActive, setIsActive] = useState(false);
-
+  const [restTime, setRestTime] = useState(false);
   useEffect(() => {
     let timer: any = null;
-    if (seconds <= 0) {
-      invoke("throw_notification", {
-        title: "POMO",
-      });
+    if (seconds < 0) {
+      if (restTime === false) {
+        invoke("throw_notification", {
+          title: "POMO",
+        });
+        timer = pomodoro.wich_is_selected === "long" ? setSeconds(pomodoro.time_to_rest_long * 60) : setSeconds(pomodoro.time_to_rest_short * 60);
+        setRestTime(true);
+        return;
+      }
+      if(restTime === true) {
+        invoke("throw_notification", {
+          title: "POMO",
+        });
+        timer = setSeconds(pomodoro.time_to_focus * 60);
+        setRestTime(false);
+      }
       return;
     }
+    
     timer = setTimer(timer);
     return () => {
       clearInterval(timer);
