@@ -3,17 +3,15 @@ import {
   faEdit,
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
+import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "../../components/Button";
 import Menu from "../../components/Menu";
 import Timer from "../../components/Timer";
 import Title from "../../components/Title";
+import { selectSettings } from "../../redux/settingsSlice";
 import { OptionMenu } from "../../shared/classes/OptionMenu";
 import { Constants } from "../../utils/constants";
-import { useSelector } from "react-redux";
-import { selectSettings } from "../../redux/settingsSlice";
-import { useState } from "react";
-import { isAction } from "@reduxjs/toolkit";
 
 const options = [
   new OptionMenu(
